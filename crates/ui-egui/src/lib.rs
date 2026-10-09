@@ -1394,6 +1394,9 @@ impl eframe::App for FilmcraftApp {
     }
 
     fn logic(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        // Proddyt Switch: asks to update from the fork's releases (LABS-156).
+
+        labs_updater::frame(ctx, "film-labs", "Film Labs");
         if !self.styled {
             theme::install(ctx, &self.tokens);
             // theme::install replaces the fonts: add the system Japanese font back (or fall back to
